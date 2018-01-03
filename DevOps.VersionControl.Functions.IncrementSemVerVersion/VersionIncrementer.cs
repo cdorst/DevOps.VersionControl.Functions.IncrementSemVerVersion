@@ -4,6 +4,9 @@ namespace DevOps.VersionControl.Functions.IncrementSemVerVersion
 {
     public static class VersionIncrementer
     {
+        public static string Increment(string version, SemVerComponent component = SemVerComponent.Patch)
+            => Increment(new SemVerVersion(version), component).Version;
+
         public static SemVerVersion Increment(SemVerVersion version, SemVerComponent component = SemVerComponent.Patch)
         {
             switch (component)
